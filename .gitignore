@@ -1,0 +1,4 @@
+boot_message.cow
+*.o
+*.bin
+cowboot
