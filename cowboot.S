@@ -10,7 +10,3 @@ bits 16
 section .text
 _start:
     nop
-
-section .cowdata
-_cowdata:
-    incbin 'boot_message.cow'
