@@ -1,4 +1,6 @@
 boot_message.cow
 *.o
+*.elf
 *.bin
 cowboot
+gdb.txt

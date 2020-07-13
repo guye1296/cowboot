@@ -10,13 +10,15 @@ SECTIONS {
 
     .text : {
         *(.text)
-        text_end = .;
+
         /* write cow after code */
-        cow_start = .;
+        _cow_start = .; 
         *(.cowdata)
+        _cow_len = . - _cow_start;
 
         /* put boot magic at the end of the boot section */
         . = ORIGIN(ROM) + LENGTH(ROM) - 2;
-        SHORT(0x55aa)
+        BYTE(0x55)
+        BYTE(0xaa)
     } > ROM
 }
