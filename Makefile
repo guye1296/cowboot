@@ -4,7 +4,7 @@ OBJCOPY = objcopy
 COWSAY = cowsay
 UNIX2DOS = unix2dos
 
-cowboot: cowboot.elf
+cowboot.img: cowboot.elf
 	$(OBJCOPY) -O binary --only-section=.text $< $@
 
 cowboot.o : cowboot.S
@@ -23,7 +23,8 @@ cowboot.elf: pack_boot_section.ld cowboot.o boot_message.o
 debug: cowboot.S
 	$(AS) -f elf -g $< -o cowboot.dbg.elf
 
-
-
 clean:
-	rm -f *.o *.bin *.cow cowboot
+	rm -f *.o *.bin *.cow *.elf cowboot.img
+
+install: cowboot.img
+	dd if=$(shell pwd)/$< of=$(MEDIA) bs=512 count=1 
