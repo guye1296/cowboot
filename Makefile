@@ -24,7 +24,7 @@ debug: cowboot.S
 	$(AS) -f elf -g $< -o cowboot.dbg.elf
 
 clean:
-	rm -f *.o *.bin *.cow *.elf cowboot.img
+	rm -f *.o *.bin *.cow *.elf *.img cowboot.img
 
 install: cowboot.img
 	dd if=$(shell pwd)/$< of=$(MEDIA) bs=512 count=1 
