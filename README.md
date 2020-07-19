@@ -26,3 +26,7 @@ YES. I love cows.
 make MSG=<your boot message here>
 sudo make install MEDIA=<your destination media here>
 ```
+
+# Read more in my blog!
+click [here](https://guyonbits.com/compiling-a-simple-boot-image-for-x86/) to read the post :)
+
